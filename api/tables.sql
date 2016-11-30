@@ -17,3 +17,10 @@ create table Userinfo
 	role_id			INT REFERENCES Roles(id),
 	earned_points	INT
 );
+
+create table Order_food
+(
+	id 					SERIAL8 PRIMARY KEY,
+	food_id				INT REFERENCES Food(id),
+	quantity			INT
+);
