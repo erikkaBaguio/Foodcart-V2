@@ -31,3 +31,14 @@ create or replace function show_role(in par_id, OUT VARCHAR)
 		SELECT role_name FROM Roles WHERE id = par_id;
 	$$
 		language 'sql';
+
+
+create or replace function update_role(in par_id, par_rname VARCHAR)
+	RETURNS VOID as
+	$$
+		UPDATE Roles
+		SET
+			role_name = par_rname
+		WHERE id = par_id;
+	$$
+		language 'sql';
