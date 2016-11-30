@@ -23,3 +23,11 @@ create or replace function get_role(OUT INT, OUT VARCHAR)
 		SELECT id, role_name FROM Roles;
 	$$
 		language 'sql';
+
+
+create or replace function show_role(in par_id, OUT VARCHAR)
+	RETURNS SETOF RECORD as
+	$$
+		SELECT role_name FROM Roles WHERE id = par_id;
+	$$
+		language 'sql';
