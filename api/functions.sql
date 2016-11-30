@@ -15,3 +15,11 @@ create or replace function store_role(par_rname VARCHAR)
 		END;
 	$$
 		language 'plpgsql';
+
+
+create or replace function get_role(OUT INT, OUT VARCHAR)
+	RETURNS SETOF RECORD as
+	$$
+		SELECT id, role_name FROM Roles;
+	$$
+		language 'sql';
