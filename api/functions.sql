@@ -6,19 +6,17 @@ create or replace function store_restaurant(par_restoName text, par_minOrder flo
 		BEGIN
 
 			if  par_restoName = '' or
-				par_minOrder = '' or
-				par_deliveryFee = '' or
 				par_location = ''
 			
 			THEN
 
-				loacal_response = 'Error';
+				local_response = 'ERROR';
 			ELSE	
 
-			insert into Restaurant(id, resto_name, min_order, delivery_fee, location)
-			values (par_restoID, par_restoName, par_minOrder, par_deliveryFee);
+			insert into Restaurant(resto_name, min_order, delivery_fee, location)
+			values (par_restoName, par_minOrder, par_deliveryFee, par_location);
 			
-			local_response = "OK";
+			local_response = 'OK';
 			
 			END IF;
 
